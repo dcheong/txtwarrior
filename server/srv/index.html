@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>txt warrior</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <body>
+      <h1 id="title">
+        txt warrior 0.0.1
+      </h1>
+      <div id="output">
+      </div>
+      <input id="textbox" autocomplete="off" autofocus="true"/>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+      <script>
+        $(function () {
+          var socket = io();
+          var textinput = $('#textbox');
+          var textoutput = $('#output');
+          textinput.keypress(function (e) {
+            if (e.which == 13) {
+              var success = validateAndSendInput(textinput.val())
+              if (success) {
+                textinput.val('');
+              } else {
+                window.alert('Failed to send due to bad input');
+              }
+              return false;
+            }
+          });
+
+          socket.on('server broadcast', function(msg) {
+            writeToOutput(msg, 'server');
+          })
+
+          socket.on('player broadcast', function(msg) {
+            writeToOutput(msg, 'player');
+          })
+
+          function validateAndSendInput(input) {
+            if (input == '' || input == 'badinput') {
+              return false;
+            }
+            socket.emit('player input', input);
+            return true;
+          }
+
+          function writeToOutput(msg, src) {
+            console.log(msg);
+            textoutput.append($('<li>').addClass(src).text(msg));
+            textoutput.scrollTop(1E10);
+          }
+        })
+      </script>
+    </body>
+  </head>
+</html>

@@ -1,0 +1,74 @@
+*{box-sizing: border-box;}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: black;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+  white-space: pre;
+}
+
+.server {
+  color: orange;
+}
+
+.player {
+  color: white;
+}
+
+#title {
+  padding: 10px;
+}
+
+#output {
+  flex: 10;
+  overflow-y: scroll;
+  width: 100%;
+  background-color: black;
+  border-bottom: solid gray 1px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#textbox {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 10px 10px;
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: black;
+  color: black;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+  border: solid orange 0.5px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border: solid orange 0.5px;
+}

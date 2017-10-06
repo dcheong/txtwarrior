@@ -1,0 +1,9 @@
+{
+  "name": "txt-warrior-server",
+  "version": "0.0.1",
+  "description": "it is on, my dudes",
+  "dependencies": {
+    "express": "^4.16.1",
+    "socket.io": "^2.0.3"
+  }
+}

@@ -1,0 +1,24 @@
+v0.0.1 changelog
+===================
+We are up and running!
+Added message presets read from txt files
+===================
+Complementary haiku:
+fat man sees small door
+he knows he cannot fit through
+tears flow free now
+===================
+_
+//\
+V  \
+\  \_
+ \,'.`-.
+  |\ `. `.
+  ( \  `. `-.                        _,.-:\
+   \ \   `.  `-._             __..--' ,-';/
+    \ `.   `-.   `-..___..---'   _.--' ,'/
+     `. `.    `-._        __..--'    ,' /
+       `. `-_     ``--..''       _.-' ,'
+         `-_ `-.___        __,--'   ,'
+            `-.__  `----"""    __.-'
+                  `--..____..--'
