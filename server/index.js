@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const readline = require('readline');
 const fs = require('fs');
+const strings = require('./strings');
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/srv/index.html');
@@ -12,9 +13,9 @@ app.get('/', function(req, res){
 app.use(express.static('srv'))
 
 io.on('connection', function(socket) {
-  emitPreset(socket, 'server broadcast', 'welcome')
-  .then(() => emitPreset(socket, 'server broadcast', 'changelog'))
-  .then(() => emitMessage(io, 'server broadcast', 'a player has spawned'));
+  emitPreset(socket, strings.SERVER_BROADCAST, 'welcome')
+  .then(() => emitPreset(socket, strings.SERVER_BROADCAST, 'changelog'))
+  .then(() => emitMessage(io, strings.SERVER_BROADCAST, strings.MSG_PLAYER_SPAWNED));
   console.log('player connected');
   socket.on('player input', function(msg) {
     console.log('player input: ' + msg);
