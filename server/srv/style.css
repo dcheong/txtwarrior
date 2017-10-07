@@ -33,6 +33,10 @@ li {
   color: white;
 }
 
+.self {
+  color: cyan;
+}
+
 .error {
   color: red;
 }

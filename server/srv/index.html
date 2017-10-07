@@ -36,6 +36,10 @@
             writeToOutput(msg, 'player');
           })
 
+          socket.on('self broadcast', function(msg) {
+            writeToOutput(msg, 'self');
+          })
+
           function validateAndSendInput(input) {
             if (input == '' || input == 'badinput') {
               return false;
