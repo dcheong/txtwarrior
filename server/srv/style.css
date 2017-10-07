@@ -26,10 +26,15 @@ li {
 
 .server {
   color: orange;
+  font-size: 16px;
 }
 
 .player {
   color: white;
+}
+
+.error {
+  color: red;
 }
 
 #title {

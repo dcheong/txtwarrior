@@ -20,11 +20,10 @@
           textinput.keypress(function (e) {
             if (e.which == 13) {
               var success = validateAndSendInput(textinput.val())
-              if (success) {
-                textinput.val('');
-              } else {
-                window.alert('Failed to send due to bad input');
+              if (!success) {
+                writeToOutput('input was invalid', 'error');
               }
+              textinput.val('');
               return false;
             }
           });
