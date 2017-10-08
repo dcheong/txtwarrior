@@ -3,6 +3,7 @@ module.exports = {
   //output function names
   SERVER_BROADCAST: 'server broadcast',
   PLAYER_BROADCAST: 'player broadcast',
+  SELF_BROADCAST: 'self broadcast',
 
   //input function names
   PLAYER_INPUT: 'player input',

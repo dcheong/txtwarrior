@@ -48,7 +48,9 @@ io.on('connection', function(socket) {
   socket.on(strings.PLAYER_INPUT, (input) => {handleInput(input, socket)});
 });
 
+
 function handleInput(input, socket) {
+  console.log(input);
   let msgSplit = input.split(" ");
   const command = msgSplit.shift();
   switch (command) {
@@ -58,23 +60,25 @@ function handleInput(input, socket) {
         for (var socketId in socketList) {
           const receiver = socketList[socketId];
           if (socketId == socket.id) {
-            emitMessage(socket, 'self broadcast', msg);
+            emitMessage(socket, strings.SELF_BROADCAST, msg);
             continue;
           }
           const pos1 = playerLocs[socketId];
           const pos2 = playerLocs[socket.id];
           const dir = getDirection(pos1, pos2);
           console.log('emitting ' + dir + msg + ' to' + socketId)
-          emitMessage(receiver, 'player broadcast', getDirection(pos1, pos2) + ' ' + socket.id + ' ' + msg)
+          emitMessage(receiver, strings.PLAYER_BROADCAST, getDirection(pos1, pos2) + ' ' + socket.id + ' ' + msg)
         }
       }
       break;
     case 'id':
-      emitMessage(socket, 'server broadcast', command + ': ' + socket.id);
+      emitMessage(socket, strings.SERVER_BROADCAST, command + ': ' + socket.id);
       break;
     case 'coords':
-      emitMessage(socket, 'server broadcast', command + ': ' + playerLocs[socket.id]);
+      emitMessage(socket, strings.SERVER_BROADCAST, command + ': ' + playerLocs[socket.id]);
       break;
+    case 'help':
+      emitPreset(socket, strings.SERVER_BROADCAST, 'help');
     default:
       console.log('default out');
   }

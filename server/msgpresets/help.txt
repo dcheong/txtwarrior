@@ -1,0 +1,6 @@
+Help Page:
+ACTIONS:
+say - talk (ex. 'say hello world!')
+DEBUGGING:
+coords - tile position
+id - player id
